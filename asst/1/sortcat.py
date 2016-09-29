@@ -1,22 +1,34 @@
-import collections
-
-# how to indicate imputting as many arguments as possible?
-def sortcat(*arg):	
-	# do i need to make sure n is an int?	
-	n = arg[0]
+def sortcat(*args):		
 	
-	# push arguments into a list, except for first one
-	sortcat_list = arg
-	sortcat_list.remove(arg[0])
+	print args
+
+	n = args[0]
+	
+	sortcat_list = list(args)
+	sortcat_list.remove(args[0])
+
+	sortcat_list.sort(key=len, reverse=True)
+
+	largest_args = sortcat_list[:n]
+
+	result = ''
+
+	for arg in largest_args:
+		result += arg
+
+	print result
+
+sortcat(2, 'aaaaaaaaaa', 'cccc', 'd', 'bbbbbbb')
+
 
 	# loop
 		# find longest argument . . . until iterations = n
 			# print each time going through loop
 		# some sort of counter for number of iterations?
-	while (counter < n + 1):
-		for elt in sortcat_list:
-			max = max(sortcat_list)
-			print max
-		counter = counter + 1
+	# while (counter < n + 1):
+	# 	for elt in sortcat_list:
+	# 		max = max(sortcat_list)
+	# 		print max
+	# 	counter = counter + 1
 
-sortcat(raw_input())
+# sortcat(raw_input())

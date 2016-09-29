@@ -1,17 +1,20 @@
 import collections
 
-def swapchars(str):
-	counter = collections.Counter(str)
+def swapchars(message):
+	counter = collections.Counter(message)
 	least = counter.most_common()[-1][0]
-	most = collections.Counter(str).most_common()[0][0]
+	most = collections.Counter(message).most_common()[0][0]
 	
-	for i in range(len(str)):
-		if str[i] == most:
-			print least,
+	output = ''
 
-		elif str[i] == least:
-			print most,
+	for i in range(len(message)):
+		if message[i] == most:
+			output += least
+		elif message[i] == least:
+			output += most
 		else:
-			print str[i],
+			output += message[i]
+
+	print output
 
 swapchars(raw_input())
